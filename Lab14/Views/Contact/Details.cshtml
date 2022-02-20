@@ -1,0 +1,45 @@
+﻿@model Contact
+@{ 
+    ViewData["Title"] = "Contact Details";
+}
+
+<h2>Contact Details</h2>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <label>Name:</label>
+        @Model.FirstName @Model.LastName
+    </li>
+    <li class="list-group-item">
+        <label>Phone:</label>
+        @Model.PhoneNumber
+    </li>
+    <li class="list-group-item">
+        <label>Email:</label>
+        @Model.Email
+    </li>
+    <li class="list-group-item">
+        <label>Category:</label>
+        @Model.Category.Name
+    </li>
+    <li class="list-group-item">
+        <label>Organization:</label>
+        @Model.Organization
+    </li>
+    <li class="list-group-item">
+        <label>Date Added:</label>
+        @Model.DateAdded.ToShortDateString() at @Model.DateAdded.ToShortTimeString()
+    </li>
+    <li class="list-group-item">
+        <a asp-action="Edit" asp-controller="Contact"
+           asp-route-id="@Model.ContactId" asp-route-slug="@Model.Slug"
+           class="btn btn-dark">Edit</a>
+
+        <a asp-action="Delete" asp-controller="Contact"
+           asp-route-id="@Model.ContactId" asp-route-slug="@Model.Slug"
+           class="btn btn-dark">Delete</a>
+
+        <a asp-action="Index" asp-controller="Home"
+           class="btn btn-dark">Home</a>
+    </li>
+</ul>
